@@ -1,0 +1,21 @@
+services:
+  gdg-lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: gdg-ctf-lab:latest
+    container_name: gdg-ctf-lab
+    hostname: gdg-server
+    ports:
+      # 左邊是你電腦的 port，右邊是容器裡的 python http.server
+      - "8080:8080"
+    stdin_open: true
+    tty: true
+    # 想讓學生的進度在 `docker compose down` 之後還留著，就把下面兩段解除註解。
+    # 注意：掛了 volume 之後，重新 build 的新關卡內容不會蓋掉舊 volume，
+    # 要換內容請先 `docker compose down -v`。
+    # volumes:
+    #   - student-home:/home/student
+
+# volumes:
+#   student-home:

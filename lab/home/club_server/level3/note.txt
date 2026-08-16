@@ -1,0 +1,29 @@
+[LEVEL 3] 便條紙（貼在一台沒有拔電的舊筆電上）
+
+這關的 flag 被我加密了，躺在 secret.enc 裡面。
+解密程式是 decrypt.py，它會去讀同一個資料夾裡的 key.txt。
+
+問題：key.txt 不存在，因為密碼在我腦子裡，而我的腦子在畢業典禮那天格式化了。
+
+去問 TypeC。本體在忙，但他訓練的分身模型 typec-mini 24 小時都在：
+    bash ~/club_server/npc/senior.sh
+（或者 cd ~/club_server/npc 之後打 ./senior.sh）
+
+拿到密碼之後，回到這個資料夾：
+    cd ~/club_server/level3
+    nano key.txt
+
+在 nano 裡面把密碼打進去，然後：
+    Ctrl + O   存檔 → 按 Enter 確認檔名
+    Ctrl + X   離開
+
+nano 最下面那排寫的 ^O ^X，那個 ^ 就是 Ctrl 的意思。
+不要真的去打「^」這個符號，我當年打了三次。
+
+最後執行：
+    python3 decrypt.py
+
+如果印出來是一堆亂碼，代表密碼打錯了。
+用 cat key.txt 檢查一下你到底存了什麼進去。
+
+                                        -- 小拿斯

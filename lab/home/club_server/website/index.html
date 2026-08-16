@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>開源技術開發研究社 · 社團伺服器</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="scanlines"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="dot" id="statusDot"></span>
+    <span class="brandName">gdg-server</span>
+    <span class="path">/var/www/club</span>
+  </div>
+  <div class="statusText" id="statusText">連線中…</div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===== 系統狀態面板：永遠顯示 ===== -->
+  <section class="panel" id="panel">
+    <h1 class="glitch" id="bigTitle" data-text="SYSTEM DEGRADED">SYSTEM DEGRADED</h1>
+    <p class="lead" id="lead">
+      config.json 裡的六個 flag 沒有填齊，官網無法載入內容。
+    </p>
+
+    <div class="progressWrap">
+      <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+      <div class="progressLabel" id="progressLabel">0 / 6</div>
+    </div>
+
+    <ul class="checklist" id="checklist"></ul>
+
+    <pre class="hintBox" id="hintBox">在容器裡執行：nano ~/club_server/website/config.json
+把六個 flag 填進去，存檔之後這個頁面會自己更新（每 3 秒重讀一次）。</pre>
+  </section>
+
+  <!-- ===== 修復完成後才出現的「真正的官網」 ===== -->
+  <section id="site" class="site hidden">
+
+    <div class="hero">
+      <pre class="logo">
+   ___   ___   ___
+  / __| |   \ / __|
+ | (_ | | |) | (_ |
+  \___| |___/ \___|
+      </pre>
+      <p class="clubNameEn" id="clubNameEn">Google Developer Group (on Campus)</p>
+      <h2 id="clubName">開源技術開發研究社</h2>
+      <p class="slogan" id="slogan">把黑色畫面變成你的地盤</p>
+      <p class="meta" id="meta"></p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <h3>每週社課</h3>
+        <p>週三 19:00，工學院 B1 社辦。<br>冷氣壞了四年，自備扇子。</p>
+      </article>
+      <article class="card">
+        <h3>我們在做什麼</h3>
+        <p>Linux、Git、Web、一點點 AI，<br>以及每學期一次的通宵黑客松。</p>
+      </article>
+      <article class="card">
+        <h3>加入我們</h3>
+        <p>不用會寫程式。<br>當年社長連 ls 都要偷偷 google。</p>
+      </article>
+    </div>
+
+    <div class="honor">
+      <h3>SERVER RESTORED</h3>
+      <p class="honorLine">本次修復由 <span class="you">student</span> 完成。</p>
+      <pre class="fame">
+  2016  第一屆   把社網架在宿舍桌機上
+  2017  第二屆   冷氣壞掉燒了一顆硬碟
+  2018  第三屆   只會 git commit -m "update"
+  2019  第四屆   小拿斯寫了 decrypt.py，隔天忘記密碼
+  2023  第五屆   小拿斯畢業前把伺服器變成 CTF
+  2025  你       把它修好了
+      </pre>
+      <p class="sign">「社辦的燈記得關。冷氣本來就是壞的。」<br>—— 小拿斯</p>
+    </div>
+
+    <div class="skills">
+      <h3>你這一輪學會的招式</h3>
+      <div class="skillGrid">
+        <span>cd / pwd / ls</span>
+        <span>ls -a（隱藏檔）</span>
+        <span>cat</span>
+        <span>nano 編輯存檔</span>
+        <span>mkdir / mv / cp</span>
+        <span>python3 執行程式</span>
+        <span>sudo apt install</span>
+        <span>tree / find</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JSON 壞掉時的錯誤畫面 ===== -->
+  <section id="jsonError" class="jsonError hidden">
+    <h2>config.json 解析失敗</h2>
+    <p>檔案格式壞掉了，瀏覽器讀不懂。常見原因：少一個逗號、多一個逗號、引號沒關。</p>
+    <pre id="jsonErrorMsg"></pre>
+    <p class="fixTip">回到 terminal：<code>nano ~/club_server/website/config.json</code> 修好它。<br>
+    最後一個項目後面<b>不要</b>加逗號，每個值都要用雙引號包起來。</p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span id="tick">auto-check: on</span>
+  <span>gdg-server · python3 -m http.server 8080</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
