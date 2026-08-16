@@ -103,7 +103,7 @@ GDG_DELAY=0.3 ./president.sh    # 自訂每行秒數
 | 0 | `GDG{h3ll0_t3rm1n4l_w0rld}` | `~/hint.txt` |
 | 1 | `GDG{cd_1s_th3_f1rst_st3p}` | `~/club_server/level1/backup/old_stuff/flag.txt` |
 | 2 | `GDG{d0tf1l3s_4r3_sn34ky}` | `~/club_server/level2/.gdg_secret` |
-| 3 | `GDG{d3crypt3d_th3_l3g4cy}` | `decrypt.py` 解 `secret.enc`（密碼 `gdg2019_pixel_penguin`） |
+| 3 | `GDG{d3crypt3d_th3_l3g4cy}` | `decrypt.py` 解 `secret.enc`（密碼 `GDGVIP666`，由 `senior.sh` 給） |
 | 4 | `GDG{pr0j3ct_r3st0r3d_g00d_j0b}` | 修好 `broken_project` 後 `python3 main.py` 印出 |
 | 5 | `GDG{tr33_s33s_3v3ryth1ng}` | `level5/archive/2019/summer/photos/raw/hackathon_0713/.cache/thumbs/backup/final_v3_FINAL/flag.txt` |
 
@@ -174,7 +174,7 @@ function hash(s){let x=5381;for(let i=0;i<s.length;i++){x=((x*33)^s.charCodeAt(i
 
 ```python
 import base64
-key = "gdg2019_pixel_penguin"
+key = "GDGVIP666"
 msg = "新的內容"
 b, k = msg.encode(), key.encode()
 print(base64.b64encode(bytes(b[i] ^ k[i % len(k)] for i in range(len(b)))).decode())

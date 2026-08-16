@@ -26,20 +26,18 @@ say "$C_SENIOR" "TypeC" "你要 level3 的密碼對吧。"
 say "$C_SENIOR" "TypeC" "我就知道。他每次設完密碼隔天就忘記，四年來沒變過。"
 blank
 narrate "（訊息輸入中 ...）"
-say "$C_SENIOR" "TypeC" "他大二那年養過一隻電子雞，取名叫 pixel penguin，"
-say "$C_SENIOR" "TypeC" "整整一個月社課都在餵那隻企鵝，作業全部遲交。"
-say "$C_SENIOR" "TypeC" "然後他就把它拿來當密碼了，還說「這樣很有紀念價值」。"
-blank
-say "$C_SENIOR" "TypeC" "所以密碼是這串，我一個字一個字打給你，不要打錯："
+say "$C_SENIOR" "TypeC" "他每次設密碼都用同一個模板：社名 + 他覺得自己很屌。"
+say "$C_SENIOR" "TypeC" "大二設 wifi 密碼那次，全社連上去都看得到那串，他還很得意。"
+say "$C_SENIOR" "TypeC" "所以是這串，我一個字一個字打給你，不要打錯："
 blank
 
-printf "    \e[1;32m┌────────────────────────────┐\e[0m\n"
-printf "    \e[1;32m│  gdg2019_pixel_penguin     │\e[0m\n"
-printf "    \e[1;32m└────────────────────────────┘\e[0m\n"
+printf "    \e[1;32m┌────────────────────┐\e[0m\n"
+printf "    \e[1;32m│  GDGVIP666         │\e[0m\n"
+printf "    \e[1;32m└────────────────────┘\e[0m\n"
 blank
 sleep 1
 
-say "$C_SENIOR" "TypeC" "全部小寫，中間是底線，不是減號。"
+say "$C_SENIOR" "TypeC" "前面 GDGVIP 六個字母全部大寫，後面是三個 6，沒有底線沒有空格。"
 say "$C_SENIOR" "TypeC" "打錯的話 decrypt.py 會噴一堆亂碼，那不是程式壞了，是你手殘。"
 blank
 
