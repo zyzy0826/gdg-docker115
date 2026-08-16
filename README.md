@@ -1,6 +1,7 @@
 # GDG Linux CTF Lab — 社團伺服器搶救行動
 
-一個 Docker 化的 Linux 闖關環境，用來教大學生最基礎的 terminal 指令。
+給 **Google Developer Group (on Campus)　開源技術開發研究社** 用的 Docker 化 Linux 闖關環境，
+用來教大學生最基礎的 terminal 指令。
 
 > 劇情：社團前社長小拿斯畢業前一晚把伺服器搞得亂七八糟，官網掛了，
 > 六個 flag 散落在各個角落。新社員必須靠 terminal 把它救回來。

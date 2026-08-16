@@ -176,7 +176,14 @@ h1.glitch.ok::after { animation: none; opacity: .12; }
   font-size: 13px;
   text-shadow: 0 0 14px rgba(53, 224, 122, .45);
 }
-.hero h2 { margin: 6px 0 4px; color: #fff; font-size: clamp(20px, 4vw, 28px); }
+.clubNameEn {
+  margin: 10px 0 0;
+  color: var(--green-dim);
+  font-size: clamp(11px, 2.4vw, 13px);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.hero h2 { margin: 4px 0; color: #fff; font-size: clamp(20px, 4vw, 28px); }
 .slogan { color: var(--green); margin: 0; }
 .meta { color: var(--muted); font-size: 13px; }
 

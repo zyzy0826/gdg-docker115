@@ -108,6 +108,7 @@ function render(config) {
 
 function applySite(config) {
   var site = (config && config.site) || {};
+  if (site.club_name_en) { $("clubNameEn").textContent = site.club_name_en; }
   if (site.club_name) { $("clubName").textContent = site.club_name; }
   if (site.slogan) { $("slogan").textContent = site.slogan; }
   var bits = [];
