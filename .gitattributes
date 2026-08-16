@@ -1,0 +1,13 @@
+# 容器裡的檔案一律用 LF，避免 Windows 上 clone 出 CRLF 導致 bash script 爆掉
+* text=auto eol=lf
+*.sh   text eol=lf
+*.py   text eol=lf
+*.txt  text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.ini  text eol=lf
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+Dockerfile text eol=lf
+*.yml  text eol=lf

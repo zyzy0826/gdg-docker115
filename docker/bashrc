@@ -1,0 +1,61 @@
+# ~/.bashrc for student @ gdg-server
+# 小拿斯留下的 shell 設定。他說「這樣比較有 hacker 的感覺」。
+
+# 非互動式 shell 直接跳出
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+HISTCONTROL=ignoreboth
+HISTSIZE=2000
+HISTFILESIZE=5000
+shopt -s histappend
+shopt -s checkwinsize
+
+# --- 有顏色的提示字元 -------------------------------------------------------
+#  綠色 使用者@主機 : 藍色 目前路徑 $
+PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+
+# ls / grep 上色
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias grep='grep --color=auto'
+
+# 小拿斯的懶人 alias（他真的很懶）
+alias ..='cd ..'
+alias ...='cd ../..'
+alias c='clear'
+alias mission='cat ~/hint.txt'
+
+export EDITOR=nano
+export PATH="$HOME/.local/bin:$PATH"
+
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+fi
+
+# --- 開場白 -----------------------------------------------------------------
+if [ -z "${GDG_BANNER_SHOWN:-}" ]; then
+export GDG_BANNER_SHOWN=1
+cat <<'BANNER'
+
+  ██████╗ ██████╗  ██████╗     ██████╗██╗     ██╗   ██╗██████╗
+ ██╔════╝ ██╔══██╗██╔════╝    ██╔════╝██║     ██║   ██║██╔══██╗
+ ██║  ███╗██║  ██║██║  ███╗   ██║     ██║     ██║   ██║██████╔╝
+ ██║   ██║██║  ██║██║   ██║   ██║     ██║     ██║   ██║██╔══██╗
+ ╚██████╔╝██████╔╝╚██████╔╝   ╚██████╗███████╗╚██████╔╝██████╔╝
+  ╚═════╝ ╚═════╝  ╚═════╝     ╚═════╝╚══════╝ ╚═════╝ ╚═════╝
+              S O C I E T Y   S E R V E R   v1.1.5
+BANNER
+echo ""
+echo -e "\e[1;33m[系統]\e[0m 偵測到新的登入：student"
+echo -e "\e[1;33m[系統]\e[0m 上一位管理員：ex_president（已於畢業典禮當天離線，未交接）"
+echo -e "\e[1;31m[系統]\e[0m 官網服務狀態：\e[1;31mDEGRADED\e[0m — config.json 缺少 6 個 flag"
+echo ""
+echo -e "  第一件事：\e[1;36mcat ~/hint.txt\e[0m  （之後也可以直接打 \e[1;36mmission\e[0m）"
+echo -e "  官網長怎樣：瀏覽器打開 \e[1;36mhttp://localhost:8080\e[0m"
+echo ""
+fi
