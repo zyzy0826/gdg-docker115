@@ -8,9 +8,11 @@ if [ "${GDG_FAST:-0}" = "1" ]; then
 fi
 
 C_RESET='\e[0m'
-C_PRES='\e[1;36m'    # 小拿斯：青色
-C_SENIOR='\e[1;35m'  # TypeC / typec-mini：紫色
-C_SYS='\e[1;33m'     # 系統：黃色
+C_PRES='\e[1;36m'          # 小拿斯：青色
+C_SENIOR='\e[1;35m'        # TypeC / typec-mini：紫色
+C_HUANG='\e[1;38;5;214m'   # 大黃：橘黃色（256 色，退化成黃色也還好看）
+C_SISI='\e[1;38;5;213m'    # 西西：粉紅色
+C_SYS='\e[1;33m'           # 系統：黃色
 C_DIM='\e[2m'
 
 # say <說話者顏色> <名字> <台詞>

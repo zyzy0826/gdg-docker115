@@ -10,7 +10,8 @@ Google Developer Group (on Campus) 開源技術開發研究社
   ├── level3/     加密過的東西，密碼我忘了，去問 TypeC 的分身 AI
   ├── level4/     官網的子專案，被我拆爛了
   ├── level5/     照片檔案庫，深不見底，我自己也迷路過
-  ├── npc/        我留的語音留言 + TypeC 訓練的分身模型 typec-mini
+  ├── npc/        我留的語音留言、TypeC 的分身模型 typec-mini、
+  │               大黃（會唸你但很有用）、西西（不會有用）
   ├── diary/      我的日記，不要看
   └── website/    社團官網本體，缺 6 個 flag 才能正常顯示
 
