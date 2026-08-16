@@ -1,0 +1,261 @@
+/* 社團官網樣式表 · 小拿斯 2022 作品
+   風格說明：「CRT 終端機」。TypeC 說很俗。我不管。 */
+
+:root {
+  --bg: #06090b;
+  --bg-soft: #0c1114;
+  --line: #1d2a30;
+  --green: #35e07a;
+  --green-dim: #1f7a45;
+  --amber: #ffb454;
+  --red: #ff5f56;
+  --text: #cfe6dc;
+  --muted: #6b8a80;
+  --mono: ui-monospace, SFMono-Regular, "Cascadia Mono", Consolas,
+          "DejaVu Sans Mono", "Noto Sans Mono CJK TC", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* CRT 掃描線 */
+#scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.022) 0px,
+    rgba(255, 255, 255, 0.022) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-soft);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+.brandName { color: var(--green); font-weight: 700; letter-spacing: .04em; }
+.path { color: var(--muted); }
+
+.dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 10px currentColor;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.dot.ok { background: var(--green); animation: none; }
+@keyframes pulse { 50% { opacity: .25; } }
+
+.statusText { color: var(--muted); font-size: 13px; }
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 26px 18px 60px;
+}
+
+.hidden { display: none !important; }
+
+/* ---------- 狀態面板 ---------- */
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px;
+  background: linear-gradient(180deg, var(--bg-soft), transparent);
+}
+
+h1.glitch {
+  margin: 0 0 6px;
+  font-size: clamp(22px, 5vw, 34px);
+  letter-spacing: .06em;
+  color: var(--red);
+  position: relative;
+}
+h1.glitch.ok { color: var(--green); }
+h1.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px; top: 0;
+  color: rgba(255, 255, 255, .18);
+  clip-path: inset(0 0 55% 0);
+  animation: shift 2.6s steps(2, end) infinite;
+  pointer-events: none;
+}
+h1.glitch.ok::after { animation: none; opacity: .12; }
+@keyframes shift {
+  0%, 92%, 100% { transform: translateX(0); }
+  94% { transform: translateX(-3px); }
+  97% { transform: translateX(3px); }
+}
+
+.lead { color: var(--muted); margin: 0 0 18px; }
+
+.progressWrap { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.progressBar {
+  flex: 1;
+  height: 12px;
+  background: #0a1013;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--green-dim), var(--green));
+  transition: width .45s ease;
+}
+.progressLabel { color: var(--green); font-weight: 700; min-width: 52px; text-align: right; }
+
+.checklist { list-style: none; margin: 0 0 18px; padding: 0; }
+.checklist li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: #080d0f;
+  flex-wrap: wrap;
+}
+.checklist .mark { width: 2.4em; font-weight: 700; }
+.checklist .lv { color: var(--text); min-width: 5.5em; }
+.checklist .desc { color: var(--muted); font-size: 13px; }
+.checklist li.ok { border-color: var(--green-dim); }
+.checklist li.ok .mark { color: var(--green); }
+.checklist li.bad .mark { color: var(--red); }
+.checklist li.empty .mark { color: var(--muted); }
+.checklist li.bad .desc { color: var(--amber); }
+
+.hintBox {
+  margin: 0;
+  padding: 14px;
+  border-left: 3px solid var(--green-dim);
+  background: #080d0f;
+  color: var(--muted);
+  white-space: pre-wrap;
+  font-size: 13px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ---------- 修復完成的官網 ---------- */
+.site { margin-top: 30px; animation: fadeUp .7s ease both; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero { text-align: center; padding: 26px 0 10px; border-bottom: 1px solid var(--line); }
+.logo {
+  color: var(--green);
+  margin: 0 auto 6px;
+  font-size: 13px;
+  text-shadow: 0 0 14px rgba(53, 224, 122, .45);
+}
+.hero h2 { margin: 6px 0 4px; color: #fff; font-size: clamp(20px, 4vw, 28px); }
+.slogan { color: var(--green); margin: 0; }
+.meta { color: var(--muted); font-size: 13px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+  margin: 26px 0;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+  background: var(--bg-soft);
+}
+.card h3 { margin: 0 0 8px; color: var(--green); font-size: 15px; }
+.card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+.honor {
+  border: 1px solid var(--green-dim);
+  border-radius: 10px;
+  padding: 20px;
+  background: rgba(31, 122, 69, .07);
+  text-align: center;
+}
+.honor h3 { margin: 0 0 6px; color: var(--green); letter-spacing: .18em; }
+.honorLine { color: var(--muted); margin: 0 0 10px; }
+.you { color: var(--amber); font-weight: 700; }
+.fame {
+  text-align: left;
+  display: inline-block;
+  margin: 0 auto 12px;
+  color: var(--text);
+  font-size: 13px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.sign { color: var(--muted); font-size: 13px; margin: 0; }
+
+.skills { margin-top: 26px; }
+.skills h3 { color: var(--green); font-size: 15px; margin: 0 0 10px; }
+.skillGrid { display: flex; flex-wrap: wrap; gap: 8px; }
+.skillGrid span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--bg-soft);
+}
+
+/* ---------- JSON 錯誤 ---------- */
+.jsonError {
+  margin-top: 26px;
+  border: 1px solid var(--red);
+  border-radius: 10px;
+  padding: 20px;
+  background: rgba(255, 95, 86, .06);
+}
+.jsonError h2 { margin: 0 0 8px; color: var(--red); font-size: 18px; }
+.jsonError p { color: var(--muted); margin: 0 0 10px; }
+.jsonError pre {
+  background: #0a0d0e;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+  color: var(--amber);
+  overflow-x: auto;
+  font-size: 13px;
+}
+.fixTip code { color: var(--green); }
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  padding: 12px 18px;
+  color: var(--muted);
+  font-size: 12px;
+}

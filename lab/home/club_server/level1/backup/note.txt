@@ -1,0 +1,8 @@
+這裡是 backup 資料夾，但我從來沒真的備份過東西。
+
+裡面只有一個 old_stuff/，是我大二時候的作業，我不敢刪。
+flag 就在 old_stuff 裡面。
+
+繼續走：cd old_stuff
+
+                                        -- 小拿斯

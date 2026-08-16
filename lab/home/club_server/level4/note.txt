@@ -1,0 +1,40 @@
+[LEVEL 4] 便條紙（皺成一團，從垃圾桶撿出來的）
+
+這裡放的是官網的「橫幅產生器」子專案。
+那天晚上我覺得它的資料夾結構「很不整齊」，就手賤重新整理了一下。
+然後就壞了。
+
+程式本身沒壞，是檔案被我放到錯的地方。你要把它排回去。
+
+程式期待的長相：
+    broken_project/
+    ├── main.py
+    ├── config/
+    │   └── settings.ini
+    ├── assets/
+    │   └── logo.txt
+    └── trash/
+        └── logo.txt      ← 這份是備份，不准刪，也不准搬走
+
+現在的長相：settings.ini 躺在專案根目錄，assets/ 跟 config/ 根本不存在，
+logo.txt 只有 trash/ 裡那一份。
+
+你會用到三個指令：
+    mkdir 資料夾名            建立資料夾
+    mkdir -p a/b/c           連同中間的層一起建立
+    mv 來源 目的地            搬移（東西會從原地消失）
+    cp 來源 目的地            複製（原地那份還在）
+
+搬移跟複製差在哪，這一關會逼你搞懂：
+  * settings.ini 要「搬」進 config/ ——根目錄不可以再留一份
+  * logo.txt 要「複製」到 assets/ ——trash/ 那份是備份，必須留著
+
+弄完之後執行：
+    cd ~/club_server/level4/broken_project
+    python3 main.py
+
+程式會自己檢查，缺什麼它會告訴你。做對了它就會吐 flag。
+
+小技巧：ls -R 可以一次看到底下所有層的檔案，方便你確認排對了沒。
+
+                                        -- 小拿斯（這次真的很抱歉）
