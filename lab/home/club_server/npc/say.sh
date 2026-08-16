@@ -9,7 +9,7 @@ fi
 
 C_RESET='\e[0m'
 C_PRES='\e[1;36m'    # 小拿斯：青色
-C_SENIOR='\e[1;35m'  # TypeC：紫色
+C_SENIOR='\e[1;35m'  # TypeC / typec-mini：紫色
 C_SYS='\e[1;33m'     # 系統：黃色
 C_DIM='\e[2m'
 

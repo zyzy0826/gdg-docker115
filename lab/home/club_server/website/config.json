@@ -1,10 +1,10 @@
 {
   "_readme": "官網設定檔。把六個 flag 填進下面 flags 的雙引號中間，存檔後重新整理 http://localhost:8080 。只改雙引號裡的字，逗號和括號不要動。",
   "site": {
-    "club_name": "GDG 電資學生社群",
+    "club_name": "GDGoC 開源技術開發研究社",
     "slogan": "把黑色畫面變成你的地盤",
     "founded": 2016,
-    "contact": "gdg-club@example.edu.tw"
+    "contact": "service@gdg-ntust.org"
   },
   "flags": {
     "level0": "",

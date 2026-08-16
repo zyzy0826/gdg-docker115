@@ -68,7 +68,7 @@ netstat -ano | findstr :8080        # Windows，最後一欄是 PID
 
 | 腳本 | 角色 | 作用 |
 |------|------|------|
-| `~/club_server/npc/senior.sh` | TypeC | 第 3 關的密碼來源，順便把步驟列給學生 |
+| `~/club_server/npc/senior.sh` | typec-mini（TypeC 的分身模型） | 第 3 關的密碼來源，順便把步驟列給學生 |
 | `~/club_server/npc/president.sh` | 小拿斯 | 純劇情語音留言，解釋他為什麼這樣做 |
 | `~/club_server/npc/say.sh` | — | 共用的對話函式庫（顏色、逐行延遲、按 Enter 繼續） |
 

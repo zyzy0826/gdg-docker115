@@ -6,10 +6,10 @@ GDG 社團伺服器 · 交接文件（草稿）（真的只是草稿）
   club_server/
   ├── level1/     舊備份，flag 在裡面某處
   ├── level2/     會議記錄，有些東西「看不見」
-  ├── level3/     加密過的東西，密碼我忘了，去問 TypeC
+  ├── level3/     加密過的東西，密碼我忘了，去問 TypeC 的分身 AI
   ├── level4/     官網的子專案，被我拆爛了
   ├── level5/     照片檔案庫，深不見底，我自己也迷路過
-  ├── npc/        我留的語音留言 + TypeC 的聯絡腳本
+  ├── npc/        我留的語音留言 + TypeC 訓練的分身模型 typec-mini
   ├── diary/      我的日記，不要看
   └── website/    社團官網本體，缺 6 個 flag 才能正常顯示
 

@@ -46,7 +46,7 @@ def load_key():
             "    Ctrl+O → Enter → Ctrl+X",
             "    python3 decrypt.py",
             "",
-            "密碼不知道？去問 TypeC：bash ~/club_server/npc/senior.sh",
+            "密碼不知道？去問 TypeC 的分身 AI：bash ~/club_server/npc/senior.sh",
         )
 
     with open(KEY_FILE, "r", encoding="utf-8", errors="replace") as f:
@@ -101,7 +101,7 @@ def main():
             "  * key.txt 裡面有沒有多打「密碼是」之類的字",
             "",
             "用 cat key.txt 看看你到底存了什麼。",
-            "再問一次 TypeC：bash ~/club_server/npc/senior.sh",
+            "再問一次 typec-mini：bash ~/club_server/npc/senior.sh",
         )
 
     print()

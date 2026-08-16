@@ -5,7 +5,7 @@
 
 問題：key.txt 不存在，因為密碼在我腦子裡，而我的腦子在畢業典禮那天格式化了。
 
-去問 TypeC：
+去問 TypeC。本體在忙，但他訓練的分身模型 typec-mini 24 小時都在：
     bash ~/club_server/npc/senior.sh
 （或者 cd ~/club_server/npc 之後打 ./senior.sh）
 
