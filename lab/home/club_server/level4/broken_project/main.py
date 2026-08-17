@@ -75,6 +75,7 @@ def main():
         print()
         print("  做完再跑一次：python3 main.py")
         print("  想確認檔案排對了沒：ls -R")
+        print("  還是排不出來：bash ~/club_server/npc/dahuang.sh（他會唸你，但他講得對）")
         print()
         sys.exit(1)
 

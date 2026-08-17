@@ -52,7 +52,7 @@ cat > "$ARCHIVE/2017/fall/photos/important/DO_NOT_OPEN.txt" <<'EOF'
 EOF
 
 # ---- 真正的 flag ----
-REAL="$ARCHIVE/2019/summer/photos/raw/hackathon_0713/.cache/thumbs/backup/final_v3_FINAL"
+REAL="$ARCHIVE/2022/summer/photos/raw/hackathon_0713/.cache/thumbs/backup/final_v3_FINAL"
 mkdir -p "$REAL"
 cat > "$REAL/flag.txt" <<'EOF'
 ================================================================
@@ -96,12 +96,12 @@ cat > "$REAL/flag.txt" <<'EOF'
 EOF
 
 # 藏在同一層的彩蛋
-cat > "$REAL/hackathon_2019.txt" <<'EOF'
-2019 夏季黑客松 · 照片說明（只剩文字，照片檔在那顆燒掉的硬碟裡）
+cat > "$REAL/hackathon_2022.txt" <<'EOF'
+2022 夏季黑客松 · 照片說明（只剩文字，照片檔在那顆燒掉的硬碟裡）
 
   IMG_0713_001  開幕，全社十二個人，五個人在睡覺
   IMG_0713_047  TypeC 在白板上畫架構圖，畫到第四張
-  IMG_0713_112  社長對著紅色的 error 訊息笑得很開心（那是他第一次自己 debug 成功）
+  IMG_0713_112  小拿斯對著紅色的 error 訊息笑得很開心（那是他第一次自己 debug 成功）
   IMG_0713_188  凌晨四點，桌上八個披薩盒，程式終於跑起來
   IMG_0713_190  日出。大家在頂樓。沒有人記得那天做出了什麼專案，
                 但每個人都記得那個日出。

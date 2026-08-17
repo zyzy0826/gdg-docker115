@@ -3,8 +3,9 @@
 給 **Google Developer Group (on Campus)　開源技術開發研究社** 用的 Docker 化 Linux 闖關環境，
 用來教大學生最基礎的 terminal 指令。
 
-> 劇情：社團前社長小拿斯畢業前一晚把伺服器搞得亂七八糟，官網掛了，
-> 六個 flag 散落在各個角落。新社員必須靠 terminal 把它救回來。
+> 劇情：第四屆社長小拿斯畢業前一晚把伺服器搞得亂七八糟，官網掛了，
+> 社團空窗一年。六個 flag 散落在各個角落，
+> 剛上任的第五屆幹部（也就是玩的人）必須靠 terminal 把它救回來。
 
 六關對應六組指令：`cd` / `ls -a` / `nano` + `python3` / `mkdir`+`mv`+`cp` / `apt install` / 編輯 JSON。
 全部找齊後填進 `config.json`，官網（http://localhost:8080）就會從 **SYSTEM DEGRADED** 變回正常。
@@ -70,8 +71,33 @@ netstat -ano | findstr :8080        # Windows，最後一欄是 PID
 | 腳本 | 角色 | 作用 |
 |------|------|------|
 | `~/club_server/npc/senior.sh` | typec-mini（TypeC 的分身模型） | 第 3 關的密碼來源，順便把步驟列給學生 |
+| `~/club_server/npc/dahuang.sh` | 大黃（第三屆社長，現職 SRE） | 第 4 關的求救對象：整理五條原則 + 不給答案的方向指引 |
+| `~/club_server/npc/sisi.sh` | 西西 | 只會嘻嘻。完全沒有提示，純彩蛋 |
 | `~/club_server/npc/president.sh` | 小拿斯 | 純劇情語音留言，解釋他為什麼這樣做 |
 | `~/club_server/npc/say.sh` | — | 共用的對話函式庫（顏色、逐行延遲、按 Enter 繼續） |
+
+大黃是刻意設計的「反面聲音」：他不覺得把伺服器搞爛很浪漫，會直接說那是不負責任。
+他給的五條原則（一個資料夾一件事、mv vs cp、動手前後都 ls -R、檔名要看得懂、rm 前先想）
+就是第 4 關真正想教的東西，但他不會直接把指令排好給學生。
+
+西西一句提示都不給，是給那些「每個腳本都要跑跑看」的學生的獎勵（或懲罰）。
+他的存在在大黃、小拿斯、會議記錄、經費表裡都有伏筆。
+
+### 時間軸與角色定位
+
+| 屆別 | 年份 | 誰 | 現況 |
+|------|------|----|------|
+| 第一屆 | 2016 | — | 把社網架在宿舍桌機上 |
+| 第二屆 | 2018 | — | 桌機搬進社辦，燒掉一顆硬碟 |
+| 第三屆 | 2020–2021 | **大黃**（社長） | 已就業，SRE。每週三巡檢，看不慣小拿斯 |
+| 第四屆 | 2022–2024 | **小拿斯**（社長）、**TypeC**（副社長）、**西西** | 2024/6/14 畢業當晚把伺服器打散成 CTF |
+| — | 2024–2025 | 空窗一年，沒有人接 | 伺服器就這樣爛著 |
+| 第五屆 | 2025 | **玩這個 lab 的人** | 剛上任，負責把它修回來 |
+
+小拿斯大二（2022）寫了 `decrypt.py`，同年 TypeC 手工排出社徽 ASCII、
+夏天辦了那場黑客松（第 5 關最深處的照片說明就是那次）。
+大黃比他們早兩屆，是小拿斯的直屬學長——所以小拿斯日記裡那句
+「我當年也罵過第三屆社長」，罵的就是大黃。
 
 對話是**一行一行**慢慢印出來的（預設每行 0.9 秒）。趕時間可以快轉：
 
@@ -89,7 +115,7 @@ GDG_DELAY=0.3 ./president.sh    # 自訂每行秒數
 * `~/club_server/diary/` — 兩篇日記，第二篇是畢業當天凌晨 4:12 寫的
 * `~/club_server/level2/server.log` — 那天晚上的操作紀錄
 * `level5` 裡兩個假 flag / 陷阱資料夾
-* 最深處的 `hackathon_2019.txt` — 2019 年黑客松的照片說明
+* 最深處的 `hackathon_2022.txt` — 2022 年黑客松的照片說明
 * 開場 banner、`.bashrc` 裡小拿斯的懶人 alias
 
 ---
@@ -106,7 +132,7 @@ GDG_DELAY=0.3 ./president.sh    # 自訂每行秒數
 | 2 | `GDG{d0tf1l3s_4r3_sn34ky}` | `~/club_server/level2/.gdg_secret` |
 | 3 | `GDG{d3crypt3d_th3_l3g4cy}` | `decrypt.py` 解 `secret.enc`（密碼 `GDGVIP666`，由 `senior.sh` 給） |
 | 4 | `GDG{pr0j3ct_r3st0r3d_g00d_j0b}` | 修好 `broken_project` 後 `python3 main.py` 印出 |
-| 5 | `GDG{tr33_s33s_3v3ryth1ng}` | `level5/archive/2019/summer/photos/raw/hackathon_0713/.cache/thumbs/backup/final_v3_FINAL/flag.txt` |
+| 5 | `GDG{tr33_s33s_3v3ryth1ng}` | `level5/archive/2022/summer/photos/raw/hackathon_0713/.cache/thumbs/backup/final_v3_FINAL/flag.txt` |
 
 第 4 關標準解：
 
