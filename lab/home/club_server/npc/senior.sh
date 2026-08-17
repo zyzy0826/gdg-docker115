@@ -27,6 +27,7 @@ blank
 
 wait_key "（按 Enter 繼續對話）"
 
+say "$C_SENIOR" "typec-mini" "展開說說。"
 say "$C_SENIOR" "typec-mini" "你要 level3 的密碼對吧。"
 say "$C_SENIOR" "typec-mini" "查一下訓練資料……這個問題出現過 27 次。"
 beat
