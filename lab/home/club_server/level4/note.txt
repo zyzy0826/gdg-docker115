@@ -30,7 +30,7 @@
     cat 那個路徑/flag.txt
 
 （進階：其實有更快的方法。裝完 tree 之後可以試試
-     tree -a | grep -n flag
+     tree -af | grep flag    （-f 讓每一行都印出完整路徑，grep 完才知道在哪）
  或者根本不用裝 tree：
      find . -name "flag.txt"
  這兩招我大四才學會，你現在就知道了，賺到。）

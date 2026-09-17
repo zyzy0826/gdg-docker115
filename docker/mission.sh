@@ -87,7 +87,7 @@ HINTS=(
     sudo apt install tree
 然後：
     cd ~/club_server/level4
-    tree -a | grep flag
+    tree -af | grep flag   （-f 會印出完整路徑）
 提示：最深處的資料夾名稱開頭有「.」"
 
 "先讀 cat ~/club_server/level5/note.txt 了解狀況。
