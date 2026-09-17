@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 # ---------------------------------------------------------------------------
 # apt 設定：保留已下載的 .deb 與套件索引。
-# 第 5 關要學生自己跑 `sudo apt install tree`，所以 tree 只「下載不安裝」，
+# 第 4 關要學生自己跑 `sudo apt install tree`，所以 tree 只「下載不安裝」，
 # 這樣就算教室沒網路，apt 也能直接從本機 cache 裝起來。
 # ---------------------------------------------------------------------------
 RUN rm -f /etc/apt/apt.conf.d/docker-clean \
@@ -30,7 +30,7 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/partial
 
 # ---------------------------------------------------------------------------
-# 建立 student 使用者（密碼 gdg，可用 sudo，第 5 關要用）
+# 建立 student 使用者（密碼 gdg，可用 sudo，第 4 關要用）
 # ---------------------------------------------------------------------------
 RUN useradd -m -s /bin/bash student \
  && echo 'student:gdg' | chpasswd \
@@ -56,7 +56,7 @@ RUN find /home/student /tmp/build_maze.sh \
       /home/student/.bashrc \
  && chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/mission /usr/local/bin/submit /tmp/build_maze.sh \
  && find /home/student -type f -name '*.sh' -exec chmod +x {} + \
- && bash /tmp/build_maze.sh /home/student/club_server/level5 \
+ && bash /tmp/build_maze.sh /home/student/club_server/level4 \
  && rm -f /tmp/build_maze.sh \
  && chown -R student:student /home/student
 

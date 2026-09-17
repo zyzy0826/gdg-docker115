@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 大黃 —— 第三屆社長，小拿斯的直屬學長，現在在某公司當 SRE。
 # 每週三固定登入檢查這台伺服器，四年沒斷過。
-# 標準高、脾氣差、但講的每一句都對。第 4 關卡住可以來問他。
+# 標準高、脾氣差、但講的每一句都對。第 5 關卡住可以來問他。
 # 用法：./dahuang.sh      快轉：GDG_FAST=1 ./dahuang.sh
 set -u
 cd "$(dirname "$0")"
@@ -15,7 +15,7 @@ sys "每週三 21:00 自動巡檢，已連續 213 週"
 sys "對方狀態：線上。上次巡檢報告標題：「又變更亂了」"
 blank
 
-say "$C_HUANG" "大黃" "喔，有人在動 level4。"
+say "$C_HUANG" "大黃" "喔，有人在動 level5。"
 say "$C_HUANG" "大黃" "終於。我等這一天等了很久。"
 blank
 say "$C_HUANG" "大黃" "先講清楚，我不會幫你排。"
@@ -43,7 +43,7 @@ say "$C_HUANG" "大黃" "不要用「我記得我搬過去了」當作證據。"
 blank
 say "$C_HUANG" "大黃" "第四條：檔名要能讓半年後的你看懂。"
 beat
-say "$C_HUANG" "大黃" "level5 裡面有個資料夾叫 final_v3_FINAL。"
+say "$C_HUANG" "大黃" "level4 裡面有個資料夾叫 final_v3_FINAL。"
 say "$C_HUANG" "大黃" "那是小拿斯取的。我看到的時候血壓直接上去。"
 blank
 say "$C_HUANG" "大黃" "第五條：rm 之前深呼吸三秒。"

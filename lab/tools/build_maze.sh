@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# 在 build image 的時候產生第 5 關的「照片檔案庫」迷宮。
-# 用法：bash build_maze.sh /home/student/club_server/level5
+# 在 build image 的時候產生第 4 關的「照片檔案庫」迷宮。
+# 用法：bash build_maze.sh /home/student/club_server/level4
 set -euo pipefail
 
-TARGET="${1:?用法: build_maze.sh <level5 目錄>}"
+TARGET="${1:?用法: build_maze.sh <level4 目錄>}"
 ARCHIVE="$TARGET/archive"
 
 mkdir -p "$ARCHIVE"
@@ -56,43 +56,22 @@ REAL="$ARCHIVE/2022/summer/photos/raw/hackathon_0713/.cache/thumbs/backup/final_
 mkdir -p "$REAL"
 cat > "$REAL/flag.txt" <<'EOF'
 ================================================================
-  LEVEL 5 CLEAR — 你把整棵樹翻完了
+  NODE 4 RESTORED — 你把整棵樹翻完了
 ================================================================
 
     GDG{tr33_s33s_3v3ryth1ng}
+
+拿到之後輸入：submit GDG{tr33_s33s_3v3ryth1ng}
+然後 mission 看下一步。
 
 順帶一提，資料夾叫 final_v3_FINAL 是因為我大二做專題時
 存過 final、final_v2、final_真的最後一版、final_v3_FINAL。
 你以後也會這樣，不要嘴我。
 
-----------------------------------------------------------------
-[最後一步] 把官網救回來
+                                        -- 小拿斯
 
-六個 flag 你都有了。現在去：
-
-    cd ~/club_server/website
-    ls
-    cat config.json         ← 看一下長什麼樣
-    nano config.json        ← 把六個 flag 填進去
-
-填的時候只改雙引號中間的部分，例如：
-    "level0": ""      →      "level0": "GDG{...}"
-
-逗號、引號、大括號通通不要動，JSON 少一個逗號就整個壞掉。
-（我知道，我大二那年因為少一個逗號 debug 了兩小時。）
-
-存檔（Ctrl+O → Enter → Ctrl+X）之後，
-打開瀏覽器：http://localhost:8080  然後重新整理。
-
-如果 JSON 格式打錯，網頁會直接告訴你哪裡壞了，不用怕。
-
-----------------------------------------------------------------
-
-謝謝你把它修好。
-
-社辦的燈記得關，冷氣……冷氣本來就是壞的。
-
-                                        -- 小拿斯，最後一張便條
+[大黃批註] 我會嘴。檔名要讓半年後的自己看得懂。
+          下一步輸入 mission 就好。
 EOF
 
 # 藏在同一層的彩蛋
