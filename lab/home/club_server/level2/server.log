@@ -1,6 +1,7 @@
 [2024-06-14 03:58:11] INFO  ex_president logged in from 127.0.0.1
 [2024-06-14 03:58:40] INFO  cd /home/student/club_server
 [2024-06-14 04:01:02] WARN  large amount of file operations detected
+[2024-06-14 04:01:55] INFO  cd /home/student/club_server/level2
 [2024-06-14 04:02:33] INFO  touch .gdg_secret
 [2024-06-14 04:02:35] INFO  chmod 644 .gdg_secret
 [2024-06-14 04:05:19] WARN  website/config.json modified (6 fields emptied)
