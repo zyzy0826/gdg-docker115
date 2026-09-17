@@ -55,45 +55,49 @@ fi
 IFS=',' read -ra DONE <<<"$STATUS"
 
 LABELS=(
-  "NODE 0 — cat（讀取檔案）"
-  "NODE 1 — cd（切換目錄）"
-  "NODE 2 — ls -a（隱藏檔）"
-  "NODE 3 — nano + python3（解密）"
-  "NODE 4 — apt install tree（搜尋）"
-  "NODE 5 — mkdir / mv / cp（修復專案）"
+  "NODE 0 — 讀取檔案"
+  "NODE 1 — 在資料夾之間移動"
+  "NODE 2 — 找出隱藏檔"
+  "NODE 3 — 編輯檔案與解密"
+  "NODE 4 — 安裝工具與深層搜尋"
+  "NODE 5 — 整理專案結構"
 )
 
-# 每關的提示（多行，印的時候會自動縮排）
+# 每關的提示：只用白話描述「要做什麼」，不直接給可以複製貼上的指令。
+# 指令怎麼打由社課的操作手冊負責，這裡是讓學生自己想該用哪個指令。
 HINTS=(
-"輸入 cat ~/hint.txt，裡面有第一個修復碼。
-拿到之後：submit GDG{...}"
+"家目錄裡有一份大黃留給你的任務簡報，檔名是 hint.txt。
+把它的內容印出來讀一讀，第一個修復碼就在裡面。"
 
-"cd ~/club_server/level1/backup/old_stuff/
-然後 cat flag.txt 讀取修復碼。
-迷路了就 pwd 看自己在哪，cd ~ 回家。"
+"小拿斯把這個修復碼藏在 club_server 資料夾的 level1 裡面，
+要往下走好幾層資料夾才找得到。
+每走進一層，先看看這裡有哪些東西，再決定下一步往哪走。
+找到 flag 檔案之後，把它的內容印出來。
+迷路的時候，先確認自己現在在哪裡，或直接回家目錄重來。"
 
-"cd ~/club_server/level2
-輸入 ls 看起來沒什麼，但試試 ls -a。
-有些東西開頭加了一個「.」，ls 預設看不到。"
+"走進 level2 資料夾，列出裡面的檔案。
+看起來好像沒什麼特別的，但檔名開頭是「.」的檔案，
+一般列出檔案時不會顯示。想辦法讓隱藏的檔案現形，
+再把可疑的那個檔案印出來。"
 
-"先去問 typec-mini 拿密碼：
-    bash ~/club_server/npc/senior.sh
-拿到密碼後：
-    cd ~/club_server/level3
-    nano key.txt   （把密碼打進去，Ctrl+O 存檔，Ctrl+X 離開）
-    python3 decrypt.py"
+"level3 裡的修復碼被加密了，解密程式需要一個叫 key.txt 的密碼檔，
+但小拿斯把密碼忘了。先讀 level3 裡的便條紙了解狀況。
+密碼要去問 TypeC 的分身 typec-mini，它的腳本在 npc 資料夾裡。
+拿到密碼後，回到 level3 用文字編輯器建立 key.txt，把密碼存進去，
+最後執行解密程式。"
 
-"這關要先裝一個工具：
-    sudo apt install tree
-然後：
-    cd ~/club_server/level4
-    tree -af | grep flag   （-f 會印出完整路徑）
-提示：最深處的資料夾名稱開頭有「.」"
+"level4 是一個有幾百個資料夾的照片檔案庫，一層一層翻會翻到天亮。
+先讀 level4 裡的便條紙，然後用管理員權限安裝一個
+能把整個目錄畫成樹狀圖的工具。
+用它把檔案庫攤開來找 flag 檔案，記得連隱藏的資料夾也要顯示，
+而且要看得出檔案的完整路徑。小心，裡面有假的。"
 
-"先讀 cat ~/club_server/level5/note.txt 了解狀況。
-然後 cd ~/club_server/level5/broken_project
-把散亂的檔案排回正確位置，再跑 python3 main.py。
-可以用 tree 確認結構排對了沒。"
+"level5 的專案被小拿斯拆亂了，程式找不到它要的檔案。
+先讀 level5 裡的便條紙，搞清楚專案原本應該長什麼樣子。
+缺少的資料夾要自己建立；該搬走的檔案用搬的，
+該留著當備份的檔案用複製的，兩種不要搞混。
+排好之後執行專案裡的程式，它會告訴你哪裡還不對。
+上一關裝的工具可以幫你確認結構有沒有排對。"
 )
 
 SOLVED=0
@@ -123,7 +127,7 @@ if [ "$SOLVED" -eq 6 ]; then
   echo ""
   echo -e "  打開瀏覽器看看官網：${CYAN}http://localhost:8080${RESET}"
   echo ""
-  echo -e "  ${DIM}（bonus：輸入 nano ~/club_server/website/config.json"
+  echo -e "  ${DIM}（bonus：用文字編輯器打開 website 資料夾裡的 config.json，"
   echo -e "   看看你剛才 submit 的修復碼是怎麼存進 JSON 的）${RESET}"
   echo ""
 else

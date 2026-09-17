@@ -105,12 +105,12 @@ read -r STATE LEVEL SOLVED <<<"${RESULT:-error - 0}"
 
 node_name() {
   case "$1" in
-    level0) echo "NODE 0 — 見面禮" ;;
-    level1) echo "NODE 1 — cd" ;;
-    level2) echo "NODE 2 — 隱藏檔" ;;
-    level3) echo "NODE 3 — 解密" ;;
-    level4) echo "NODE 4 — tree" ;;
-    level5) echo "NODE 5 — 修復專案" ;;
+    level0) echo "NODE 0 — 讀取檔案" ;;
+    level1) echo "NODE 1 — 在資料夾之間移動" ;;
+    level2) echo "NODE 2 — 找出隱藏檔" ;;
+    level3) echo "NODE 3 — 編輯檔案與解密" ;;
+    level4) echo "NODE 4 — 安裝工具與深層搜尋" ;;
+    level5) echo "NODE 5 — 整理專案結構" ;;
   esac
 }
 
