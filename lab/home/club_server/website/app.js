@@ -10,12 +10,12 @@
  */
 
 var LEVELS = [
-  { key: "level0", name: "LEVEL 0", desc: "hint.txt · 見面禮",           hash: "ad445dae" },
-  { key: "level1", name: "LEVEL 1", desc: "cd · 走進 backup/old_stuff",  hash: "195ab04b" },
-  { key: "level2", name: "LEVEL 2", desc: "ls -a · 隱藏檔",              hash: "ad1e2b81" },
-  { key: "level3", name: "LEVEL 3", desc: "NPC + nano + decrypt.py",     hash: "177bb792" },
-  { key: "level4", name: "LEVEL 4", desc: "mkdir / mv / cp · 修復專案",  hash: "c67e70cc" },
-  { key: "level5", name: "LEVEL 5", desc: "apt install tree · 深層目錄", hash: "664a7758" }
+  { key: "level0", name: "NODE 0", desc: "cat · 讀取遺留訊息",          hash: "ad445dae" },
+  { key: "level1", name: "NODE 1", desc: "cd · 深入 backup/old_stuff",  hash: "195ab04b" },
+  { key: "level2", name: "NODE 2", desc: "ls -a · 隱藏檔",              hash: "ad1e2b81" },
+  { key: "level3", name: "NODE 3", desc: "nano + decrypt.py · 解密",    hash: "177bb792" },
+  { key: "level4", name: "NODE 4", desc: "apt install tree · 深層搜尋", hash: "664a7758" },
+  { key: "level5", name: "NODE 5", desc: "mkdir / mv / cp · 修復專案",  hash: "c67e70cc" }
 ];
 
 /* djb2 變形雜湊，夠用就好 */
@@ -98,8 +98,8 @@ function render(config) {
     $("lead").textContent =
       "config.json 裡的六個 flag 沒有填齊，官網無法載入內容。";
     $("hintBox").textContent =
-      "在容器裡執行：nano ~/club_server/website/config.json\n" +
-      "把六個 flag 填進去，存檔之後這個頁面會自己更新（每 3 秒重讀一次）。";
+      "在容器裡用 submit GDG{...} 提交修復碼，會自動寫進 config.json。\n" +
+      "這個頁面每 3 秒重讀一次，交完就會更新。不知道下一步？輸入 mission。";
     dot.classList.remove("ok");
     $("statusText").textContent = "status: DEGRADED · " + solved + "/6 flags verified";
     $("site").classList.add("hidden");
