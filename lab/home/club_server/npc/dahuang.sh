@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 大黃 —— 第三屆社長，小拿斯的直屬學長，現在在某公司當 SRE。
 # 每週三固定登入檢查這台伺服器，四年沒斷過。
+# 看伺服器爛了一年終於受不了，偷偷幫新社員開了帳號，找人來修。
 # 標準高、脾氣差、但講的每一句都對。第 5 關卡住可以來問他。
 # 用法：./dahuang.sh      快轉：GDG_FAST=1 ./dahuang.sh
 set -u
@@ -8,7 +9,6 @@ cd "$(dirname "$0")"
 # shellcheck source=say.sh
 . ./say.sh
 
-clear 2>/dev/null || true
 blank
 sys "偵測到常駐連線：dahuang@gdg-server（第三屆社長，2020-2021，畢業後帳號自己留著）"
 sys "每週三 21:00 自動巡檢，已連續 213 週"
@@ -17,6 +17,8 @@ blank
 
 say "$C_HUANG" "大黃" "喔，有人在動 level5。"
 say "$C_HUANG" "大黃" "終於。我等這一天等了很久。"
+say "$C_HUANG" "大黃" "對，帳號是我開的。你不用謝我。"
+say "$C_HUANG" "大黃" "我只是受不了這台機器爛在那裡。"
 blank
 say "$C_HUANG" "大黃" "先講清楚，我不會幫你排。"
 say "$C_HUANG" "大黃" "我幫你排完，下次還是會亂，因為你沒學會為什麼要那樣排。"

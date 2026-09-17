@@ -8,7 +8,6 @@ cd "$(dirname "$0")"
 # shellcheck source=say.sh
 . ./say.sh
 
-clear 2>/dev/null || true
 blank
 sys "正在連線到 西西 ..."
 sys "連線成功。"
