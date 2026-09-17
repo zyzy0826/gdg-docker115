@@ -45,11 +45,16 @@ COPY lab/home/ /home/student/
 COPY docker/bashrc /home/student/.bashrc
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY lab/tools/build_maze.sh /tmp/build_maze.sh
+COPY docker/mission.sh /usr/local/bin/mission
+COPY docker/submit.sh /usr/local/bin/submit
 
 # Windows 上 clone 可能帶進 CRLF，這裡統一清掉，否則 bash / python 會爆
-RUN find /home/student /usr/local/bin/entrypoint.sh /tmp/build_maze.sh \
+# mission / submit / .bashrc 沒有副檔名，find 的 -name 篩不到，所以另外點名處理
+RUN find /home/student /tmp/build_maze.sh \
       -type f \( -name '*.sh' -o -name '*.py' \) -exec sed -i 's/\r$//' {} + \
- && chmod +x /usr/local/bin/entrypoint.sh /tmp/build_maze.sh \
+ && sed -i 's/\r$//' /usr/local/bin/entrypoint.sh /usr/local/bin/mission /usr/local/bin/submit \
+      /home/student/.bashrc \
+ && chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/mission /usr/local/bin/submit /tmp/build_maze.sh \
  && find /home/student -type f -name '*.sh' -exec chmod +x {} + \
  && bash /tmp/build_maze.sh /home/student/club_server/level5 \
  && rm -f /tmp/build_maze.sh \
