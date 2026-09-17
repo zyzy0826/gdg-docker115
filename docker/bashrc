@@ -28,7 +28,10 @@ alias grep='grep --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias c='clear'
-alias mission='cat ~/hint.txt'
+
+# 大黃開帳號時順手加的任務指令
+alias mission='/usr/local/bin/mission'
+alias submit='/usr/local/bin/submit'
 
 export EDITOR=nano
 export PATH="$HOME/.local/bin:$PATH"
@@ -42,21 +45,25 @@ if [ -z "${GDG_BANNER_SHOWN:-}" ]; then
 export GDG_BANNER_SHOWN=1
 cat <<'BANNER'
 
-  ██████╗ ██████╗  ██████╗     ██████╗██╗     ██╗   ██╗██████╗
- ██╔════╝ ██╔══██╗██╔════╝    ██╔════╝██║     ██║   ██║██╔══██╗
- ██║  ███╗██║  ██║██║  ███╗   ██║     ██║     ██║   ██║██████╔╝
- ██║   ██║██║  ██║██║   ██║   ██║     ██║     ██║   ██║██╔══██╗
- ╚██████╔╝██████╔╝╚██████╔╝   ╚██████╗███████╗╚██████╔╝██████╔╝
-  ╚═════╝ ╚═════╝  ╚═════╝     ╚═════╝╚══════╝ ╚═════╝ ╚═════╝
-     Google Developer Group (on Campus) · 開源技術開發研究社
-              S O C I E T Y   S E R V E R   v1.1.5
+  ┌────────────────────────────────────────────────────────┐
+  │  [INCOMING TRANSMISSION]                               │
+  │  FROM: dahuang@external (第三屆社長・現職 SRE)         │
+  │  TO:   student@gdg-server                              │
+  │  ENCRYPTION: AES-256 (自己騙自己的，其實是明文)        │
+  └────────────────────────────────────────────────────────┘
+
 BANNER
 echo ""
-echo -e "\e[1;33m[系統]\e[0m 偵測到新的登入：student"
-echo -e "\e[1;33m[系統]\e[0m 上一位管理員：ex_president（已於畢業典禮當天離線，未交接）"
-echo -e "\e[1;31m[系統]\e[0m 官網服務狀態：\e[1;31mDEGRADED\e[0m — config.json 缺少 6 個 flag"
+echo -e "\e[1;38;5;214m大黃\e[0m：我是大黃，第三屆社長。你不認識我沒關係。"
+echo -e "\e[1;38;5;214m大黃\e[0m：這台伺服器被上一任社長小拿斯搞爛了，已經壞一年。"
+echo -e "\e[1;38;5;214m大黃\e[0m：我每週三都會登入巡檢，看了一年，忍到極限了。"
+echo -e "\e[1;38;5;214m大黃\e[0m：所以我幫你開了這個帳號。"
 echo ""
-echo -e "  第一件事：\e[1;36mcat ~/hint.txt\e[0m  （之後也可以直接打 \e[1;36mmission\e[0m）"
-echo -e "  官網長怎樣：瀏覽器打開 \e[1;36mhttp://localhost:8080\e[0m"
+echo -e "\e[1;31m[系統]\e[0m 官網狀態：\e[1;31mSYSTEM COMPROMISED\e[0m — 6 個安全節點離線"
+echo ""
+echo -e "  第一步：輸入 \e[1;36mcat ~/hint.txt\e[0m   讀任務簡報，裡面有第一個修復碼"
+echo -e "  卡住時：輸入 \e[1;36mmission\e[0m          看進度和目前該做什麼"
+echo -e "  交答案：輸入 \e[1;36msubmit GDG{...}\e[0m  提交找到的修復碼"
+echo -e "  官網監控面板：\e[1;36mhttp://localhost:8080\e[0m"
 echo ""
 fi
