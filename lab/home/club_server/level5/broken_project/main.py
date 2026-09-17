@@ -128,6 +128,9 @@ def main():
     print()
     print("                                        -- 小拿斯，最後一張便條")
     print()
+    print("[大黃批註] 排得還算乾淨。")
+    print("          ……謝了。~/.hall_of_fame.txt 最後那行是留給你的，去把名字寫上。")
+    print()
 
 
 if __name__ == "__main__":
