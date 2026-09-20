@@ -3,9 +3,9 @@
 給 **Google Developer Group on Campus　開源技術開發研究社** 用的 Docker 化 Linux 闖關環境，
 用來練習最基礎的 terminal 指令。
 
-> 社團伺服器被上一任社長搞爛，官網已經掛了一年。
-> 第三屆社長大黃看不下去，偷偷幫你開了一個帳號。
-> 找出散落在系統各處的 6 個修復碼，把官網救回來。
+> 上一任社長畢業那天把伺服器「整理」了一遍，官網從此掛掉。
+> 他留下一張便條紙，說這是給下一屆的畢業禮物。
+> 找出散落在系統各處的 6 個 flag，把官網救回來。
 
 ---
 
@@ -28,12 +28,12 @@ docker compose exec gdg-lab bash  # 進入容器，開始闖關
 進去之後會看到開場訊息，照著做就好：
 
 ```bash
-cat ~/hint.txt           # 讀任務簡報
+cat ~/hint.txt           # 讀前社長留下的便條紙
 mission                  # 查看進度和目前該做什麼
-submit GDG{...}          # 提交找到的修復碼
+submit GDG{...}          # 交出找到的 flag
 ```
 
-官網監控面板：瀏覽器打開 <http://localhost:8080>，修復進度會即時顯示在上面。
+官網：瀏覽器打開 <http://localhost:8080>，修復進度會即時顯示在上面。
 
 離開容器打 `exit`，之後想繼續玩再執行一次 `docker compose exec gdg-lab bash`。
 
