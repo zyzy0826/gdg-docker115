@@ -55,21 +55,21 @@ fi
 IFS=',' read -ra DONE <<<"$STATUS"
 
 LABELS=(
-  "NODE 0 — 讀取檔案"
-  "NODE 1 — 在資料夾之間移動"
-  "NODE 2 — 找出隱藏檔"
-  "NODE 3 — 編輯檔案與解密"
-  "NODE 4 — 安裝工具與深層搜尋"
-  "NODE 5 — 整理專案結構"
+  "LEVEL 0 — 讀取檔案"
+  "LEVEL 1 — 在資料夾之間移動"
+  "LEVEL 2 — 找出隱藏檔"
+  "LEVEL 3 — 編輯檔案與解密"
+  "LEVEL 4 — 安裝工具與深層搜尋"
+  "LEVEL 5 — 整理專案結構"
 )
 
 # 每關的提示：只用白話描述「要做什麼」，不直接給可以複製貼上的指令。
 # 指令怎麼打由社課的操作手冊負責，這裡是讓學生自己想該用哪個指令。
 HINTS=(
-"家目錄裡有一份大黃留給你的任務簡報，檔名是 hint.txt。
-把它的內容印出來讀一讀，第一個修復碼就在裡面。"
+"家目錄裡有一張小拿斯留下的便條紙，檔名是 hint.txt。
+把它的內容印出來讀一讀，第一個 flag 就在裡面。"
 
-"小拿斯把這個修復碼藏在 club_server 資料夾的 level1 裡面，
+"小拿斯把這個 flag 藏在 club_server 資料夾的 level1 裡面，
 要往下走好幾層資料夾才找得到。
 每走進一層，先看看這裡有哪些東西，再決定下一步往哪走。
 找到 flag 檔案之後，把它的內容印出來。
@@ -80,7 +80,7 @@ HINTS=(
 一般列出檔案時不會顯示。想辦法讓隱藏的檔案現形，
 再把可疑的那個檔案印出來。"
 
-"level3 裡的修復碼被加密了，解密程式需要一個叫 key.txt 的密碼檔，
+"level3 裡的 flag 被加密了，解密程式需要一個叫 key.txt 的密碼檔，
 但小拿斯把密碼忘了。先讀 level3 裡的便條紙了解狀況。
 密碼要去問 TypeC 的分身 typec-mini，它的腳本在 npc 資料夾裡。
 拿到密碼後，回到 level3 用文字編輯器建立 key.txt，把密碼存進去，
@@ -104,7 +104,7 @@ SOLVED=0
 CURRENT=-1
 
 echo ""
-echo -e "  ┌─ GDG-SERVER // 任務狀態 ────────────────────"
+echo -e "  ┌─ gdg-server // 任務進度 ────────────────────"
 echo -e "  │"
 for i in 0 1 2 3 4 5; do
   if [ "${DONE[$i]}" = "1" ]; then
@@ -118,17 +118,17 @@ for i in 0 1 2 3 4 5; do
   fi
 done
 echo -e "  │"
-echo -e "  │  已上線：${SOLVED} / 6"
+echo -e "  │  已取得：${SOLVED} / 6 flag"
 echo -e "  └─────────────────────────────────────────────"
 echo ""
 
 if [ "$SOLVED" -eq 6 ]; then
-  echo -e "  ${GREEN}所有安全節點已修復！${RESET}"
+  echo -e "  ${GREEN}六個 flag 全部到手！${RESET}"
   echo ""
   echo -e "  打開瀏覽器看看官網：${CYAN}http://localhost:8080${RESET}"
   echo ""
   echo -e "  ${DIM}（bonus：用文字編輯器打開 website 資料夾裡的 config.json，"
-  echo -e "   看看你剛才 submit 的修復碼是怎麼存進 JSON 的）${RESET}"
+  echo -e "   看看你剛才 submit 的 flag 是怎麼存進 JSON 的）${RESET}"
   echo ""
 else
   echo -e "  ${YELLOW}► 目前任務：${LABELS[$CURRENT]}${RESET}"
@@ -138,6 +138,6 @@ else
     printf '    %s\n' "$line"
   done <<<"${HINTS[$CURRENT]}"
   echo ""
-  echo -e "  ${DIM}找到修復碼後輸入：submit GDG{...}${RESET}"
+  echo -e "  ${DIM}找到 flag 後輸入：submit GDG{...}${RESET}"
   echo ""
 fi
