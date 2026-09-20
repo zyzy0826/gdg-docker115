@@ -1,7 +1,7 @@
 /* 官網啟動程式
  *
- * 它每 3 秒去讀一次 config.json，檢查六個修復碼（flag）對不對。
- * 全對 → 官網內容出現；沒對 → 停在 SYSTEM COMPROMISED 畫面。
+ * 它每 3 秒去讀一次 config.json，檢查六個 flag 對不對。
+ * 全對 → 官網內容出現；沒對 → 停在 SYSTEM DEGRADED 畫面。
  *
  * 小拿斯註：flag 我當然不會明文寫在這裡，不然你直接 cat app.js 就破台了。
  *          這裡存的是雜湊值（hash），單向的，看得到也還原不回去。
@@ -10,12 +10,12 @@
  */
 
 var LEVELS = [
-  { key: "level0", name: "NODE 0", desc: "cat · 讀取遺留訊息",          hash: "ad445dae" },
-  { key: "level1", name: "NODE 1", desc: "cd · 深入 backup/old_stuff",  hash: "195ab04b" },
-  { key: "level2", name: "NODE 2", desc: "ls -a · 隱藏檔",              hash: "ad1e2b81" },
-  { key: "level3", name: "NODE 3", desc: "nano + decrypt.py · 解密",    hash: "177bb792" },
-  { key: "level4", name: "NODE 4", desc: "apt install tree · 深層搜尋", hash: "664a7758" },
-  { key: "level5", name: "NODE 5", desc: "mkdir / mv / cp · 修復專案",  hash: "c67e70cc" }
+  { key: "level0", name: "LEVEL 0", desc: "hint.txt · 見面禮",           hash: "ad445dae" },
+  { key: "level1", name: "LEVEL 1", desc: "cd · 走進 backup/old_stuff",  hash: "195ab04b" },
+  { key: "level2", name: "LEVEL 2", desc: "ls -a · 隱藏檔",              hash: "ad1e2b81" },
+  { key: "level3", name: "LEVEL 3", desc: "NPC + nano + decrypt.py",     hash: "177bb792" },
+  { key: "level4", name: "LEVEL 4", desc: "apt install tree · 深層目錄", hash: "664a7758" },
+  { key: "level5", name: "LEVEL 5", desc: "mkdir / mv / cp · 修復專案",  hash: "c67e70cc" }
 ];
 
 /* djb2 變形雜湊，夠用就好 */
@@ -56,7 +56,7 @@ function render(config) {
     } else {
       state = "bad";
       mark = "[✗]";
-      note = "這個修復碼不對，檢查有沒有打錯字或漏掉大括號";
+      note = "這個 flag 不對，檢查有沒有打錯字或漏掉大括號";
     }
 
     var li = document.createElement("li");
@@ -78,30 +78,31 @@ function render(config) {
   var dot = $("statusDot");
 
   if (done) {
-    title.textContent = "SYSTEM ONLINE";
-    title.setAttribute("data-text", "SYSTEM ONLINE");
+    title.textContent = "SYSTEM RESTORED";
+    title.setAttribute("data-text", "SYSTEM RESTORED");
     title.classList.add("ok");
-    $("lead").textContent = "6 個安全節點全部修復。伺服器狀態恢復正常，官網內容已載入。";
+    $("lead").textContent = "六個 flag 全部正確。伺服器狀態恢復正常，官網內容已載入。";
     $("hintBox").textContent =
       "剩下的事：\n" +
       "  * 回 terminal 看看 ~/club_server/diary/ 裡的日記（如果你還沒看的話）\n" +
       "  * ls -a ~ 看看家目錄還有什麼隱藏的東西\n" +
       "  * 然後把這台伺服器交給下一屆的時候，記得整理乾淨。或者不要。";
     dot.classList.add("ok");
-    $("statusText").textContent = "status: ONLINE · 6/6 nodes secured";
+    $("statusText").textContent = "status: ONLINE · 6/6 flags verified";
     $("site").classList.remove("hidden");
     applySite(config);
   } else {
-    title.textContent = "SYSTEM COMPROMISED";
-    title.setAttribute("data-text", "SYSTEM COMPROMISED");
+    title.textContent = "SYSTEM DEGRADED";
+    title.setAttribute("data-text", "SYSTEM DEGRADED");
     title.classList.remove("ok");
     $("lead").textContent =
-      "還有 " + (LEVELS.length - solved) + " 個安全節點離線，官網無法載入內容。";
+      "config.json 裡的六個 flag 還沒填齊（目前 " + solved + "/6），官網無法載入內容。";
     $("hintBox").textContent =
-      "在容器裡用 submit GDG{...} 提交修復碼，會自動寫進 config.json。\n" +
-      "這個頁面每 3 秒重讀一次，交完就會更新。不知道下一步？輸入 mission。";
+      "在容器裡打 submit GDG{...} 交出 flag，會自動寫進 config.json。\n" +
+      "也可以自己 nano ~/club_server/website/config.json 手動填。\n" +
+      "這個頁面每 3 秒重讀一次，存檔就會更新。不知道下一步？打 mission。";
     dot.classList.remove("ok");
-    $("statusText").textContent = "status: COMPROMISED · " + solved + "/6 nodes secured";
+    $("statusText").textContent = "status: DEGRADED · " + solved + "/6 flags verified";
     $("site").classList.add("hidden");
   }
 }
@@ -126,7 +127,7 @@ function showJsonError(message) {
   $("bigTitle").textContent = "CONFIG BROKEN";
   $("bigTitle").setAttribute("data-text", "CONFIG BROKEN");
   $("bigTitle").classList.remove("ok");
-  $("lead").textContent = "config.json 讀得到，但格式不合法，所以還沒辦法檢查修復碼。";
+  $("lead").textContent = "config.json 讀得到，但格式不合法，所以還沒辦法檢查 flag。";
 }
 
 function poll() {

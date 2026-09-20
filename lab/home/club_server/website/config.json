@@ -1,5 +1,5 @@
 {
-  "_readme": "官網設定檔。用 submit GDG{...} 提交的修復碼會自動寫進下面的 flags。想手動填也可以：只改雙引號裡的字，逗號和括號不要動，存檔後重新整理 http://localhost:8080 。",
+  "_readme": "官網設定檔。用 submit GDG{...} 交出的 flag 會自動寫進下面的 flags。想自己手動填也可以：只改雙引號裡的字，逗號和括號不要動，存檔後重新整理 http://localhost:8080 。",
   "site": {
     "club_name_en": "Google Developer Group on Campus",
     "club_name": "開源技術開發研究社",

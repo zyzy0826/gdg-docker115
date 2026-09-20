@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GDG-SERVER · 系統監控面板</title>
+<title>開源技術開發研究社 · 社團伺服器</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -14,8 +14,8 @@
 <header class="topbar">
   <div class="brand">
     <span class="dot" id="statusDot"></span>
-    <span class="brandName">GDG-SERVER</span>
-    <span class="path">// 系統監控面板</span>
+    <span class="brandName">gdg-server</span>
+    <span class="path">/var/www/club</span>
   </div>
   <div class="statusText" id="statusText">連線中…</div>
 </header>
@@ -24,9 +24,9 @@
 
   <!-- ===== 系統狀態面板：永遠顯示 ===== -->
   <section class="panel" id="panel">
-    <h1 class="glitch" id="bigTitle" data-text="SYSTEM COMPROMISED">SYSTEM COMPROMISED</h1>
+    <h1 class="glitch" id="bigTitle" data-text="SYSTEM DEGRADED">SYSTEM DEGRADED</h1>
     <p class="lead" id="lead">
-      6 個安全節點尚未全部修復，官網無法載入內容。
+      config.json 裡的六個 flag 沒有填齊，官網無法載入內容。
     </p>
 
     <div class="progressWrap">
@@ -36,8 +36,9 @@
 
     <ul class="checklist" id="checklist"></ul>
 
-    <pre class="hintBox" id="hintBox">在容器裡用 submit GDG{...} 提交修復碼，會自動寫進 config.json。
-這個頁面每 3 秒重讀一次，交完就會更新。不知道下一步？輸入 mission。</pre>
+    <pre class="hintBox" id="hintBox">在容器裡打 submit GDG{...} 交出 flag，會自動寫進 config.json。
+也可以自己 nano ~/club_server/website/config.json 手動填。
+這個頁面每 3 秒重讀一次，存檔就會更新。不知道下一步？打 mission。</pre>
   </section>
 
   <!-- ===== 修復完成後才出現的「真正的官網」 ===== -->
@@ -72,7 +73,7 @@
     </div>
 
     <div class="honor">
-      <h3>ALL NODES SECURED</h3>
+      <h3>SERVER RESTORED</h3>
       <p class="honorLine">本次修復由 <span class="you">student</span> 完成。</p>
       <pre class="fame">
   2016  第一屆   把社網架在宿舍桌機上，停電就掛
