@@ -9,7 +9,6 @@ cd "$(dirname "$0")"
 . ./say.sh
 
 blank
-sys "[SSH] 正在建立加密通道到 typec-mini ..."
 sys "正在載入 typec-mini ..."
 sys "權重檔：/opt/typec-mini/weights.gguf（1.7 GB，就跑在這台機器上，沒連外網）"
 sys "訓練資料：社團四年份的聊天紀錄、社課投影片、還有 312 則抱怨小拿斯的訊息"
