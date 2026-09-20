@@ -56,22 +56,34 @@ REAL="$ARCHIVE/2022/summer/photos/raw/hackathon_0713/.cache/thumbs/backup/final_
 mkdir -p "$REAL"
 cat > "$REAL/flag.txt" <<'EOF'
 ================================================================
-  NODE 4 RESTORED — 你把整棵樹翻完了
+  LEVEL 4 CLEAR — 你把整棵樹翻完了
 ================================================================
 
     GDG{tr33_s33s_3v3ryth1ng}
 
-拿到之後輸入：submit GDG{tr33_s33s_3v3ryth1ng}
-然後 mission 看下一步。
+交出來：submit GDG{tr33_s33s_3v3ryth1ng}
 
 順帶一提，資料夾叫 final_v3_FINAL 是因為我大二做專題時
 存過 final、final_v2、final_真的最後一版、final_v3_FINAL。
 你以後也會這樣，不要嘴我。
 
-                                        -- 小拿斯
+----------------------------------------------------------------
+[LEVEL 5] 最後一關：被我拆爛的專案
 
-[大黃批註] 我會嘴。檔名要讓半年後的自己看得懂。
-          下一步輸入 mission 就好。
+最後一個 flag 在：
+    ~/club_server/level5
+
+那裡放的是官網的「橫幅產生器」子專案。
+那天晚上我覺得它的資料夾結構「很不整齊」，就手賤重新整理了一下。
+然後就壞了。
+
+你要用 mkdir / mv / cp 把檔案排回它該在的位置，
+程式會自己檢查，排對了它就把 flag 吐給你。
+剛裝的 tree 這時候會很好用。
+
+詳細說明看：cat ~/club_server/level5/note.txt
+
+                                        -- 小拿斯
 EOF
 
 # 藏在同一層的彩蛋

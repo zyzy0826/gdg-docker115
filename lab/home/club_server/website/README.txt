@@ -9,7 +9,8 @@
 網站已經在容器裡跑起來了（python3 -m http.server 8080），
 你在自己電腦的瀏覽器打開 http://localhost:8080 就看得到。
 
-修法：
+修法：在 terminal 打 submit GDG{...}，我寫的小程式會幫你填進去。
+想自己手動填也行：
     nano config.json
 把六個 flag 填進去，存檔（Ctrl+O → Enter → Ctrl+X），瀏覽器重新整理。
 （網頁每 3 秒會自己重讀一次 config.json，其實你不重新整理也會變。）
@@ -18,6 +19,3 @@ JSON 打壞了不要慌，網頁會直接告訴你錯在哪。
 真的救不回來：cat 這個檔案旁邊沒有備份，但重開容器就會回到原狀。
 
                                         -- 小拿斯
-
-[大黃批註] 不用手動填了。我寫了 submit 指令，修復碼答對會自動寫進 config.json。
-          想看 JSON 長怎樣再用 nano 打開就好，順便學一下格式。
