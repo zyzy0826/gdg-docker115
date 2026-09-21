@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# submit — 提交修復碼（flag）
+# submit — 提交 flag
 # 用法：submit GDG{...}
 #
 # 比對方式跟官網 app.js 一樣：djb2 變形雜湊，這裡只存 hash，不存明文。
@@ -17,7 +17,7 @@ RESET='\e[0m'
 
 if [ $# -eq 0 ]; then
   echo ""
-  echo -e "  ${YELLOW}用法${RESET}：submit <你的修復碼>"
+  echo -e "  ${YELLOW}用法${RESET}：submit <你的 flag>"
   echo -e "  ${YELLOW}範例${RESET}：submit GDG{h3ll0_t3rm1n4l_w0rld}"
   echo ""
   exit 0
@@ -25,15 +25,15 @@ fi
 
 if [ $# -gt 1 ]; then
   echo ""
-  echo -e "  ${RED}✗ 修復碼裡面不應該有空格${RESET}"
+  echo -e "  ${RED}✗ flag 裡面不應該有空格${RESET}"
   echo -e "    你輸入的是：$*"
-  echo -e "    修復碼是一整串連在一起的字，例如 GDG{h3ll0_t3rm1n4l_w0rld}"
+  echo -e "    flag 是一整串連在一起的字，例如 GDG{h3ll0_t3rm1n4l_w0rld}"
   echo ""
   exit 1
 fi
 
 # 所有 JSON 讀寫都交給 python。
-# 修復碼用 argv 傳進去（heredoc 加了引號，bash 不會把使用者輸入展開進程式碼）。
+# flag 用 argv 傳進去（heredoc 加了引號，bash 不會把使用者輸入展開進程式碼）。
 # 輸出一行：<結果> <level> <已完成數量>
 ERR=$(mktemp)
 trap 'rm -f "$ERR"' EXIT
@@ -105,12 +105,12 @@ read -r STATE LEVEL SOLVED <<<"${RESULT:-error - 0}"
 
 node_name() {
   case "$1" in
-    level0) echo "NODE 0 — 讀取檔案" ;;
-    level1) echo "NODE 1 — 在資料夾之間移動" ;;
-    level2) echo "NODE 2 — 找出隱藏檔" ;;
-    level3) echo "NODE 3 — 編輯檔案與解密" ;;
-    level4) echo "NODE 4 — 安裝工具與深層搜尋" ;;
-    level5) echo "NODE 5 — 整理專案結構" ;;
+    level0) echo "LEVEL 0 — 讀取檔案" ;;
+    level1) echo "LEVEL 1 — 在資料夾之間移動" ;;
+    level2) echo "LEVEL 2 — 找出隱藏檔" ;;
+    level3) echo "LEVEL 3 — 編輯檔案與解密" ;;
+    level4) echo "LEVEL 4 — 安裝工具與深層搜尋" ;;
+    level5) echo "LEVEL 5 — 整理專案結構" ;;
   esac
 }
 
@@ -124,7 +124,7 @@ progress_box() {
   for ((i = 0; i < empty; i++)); do bar+="░"; done
   bar+="${RESET}"
   # 右邊不畫框線：中文字在不同 terminal 的寬度不一樣，畫了一定對不齊
-  echo -e "  ┌─ 修復進度 ──────────────────────────"
+  echo -e "  ┌─ flag 進度 ─────────────────────────"
   echo -e "  │  ${bar}  ${solved} / 6  (${pct}%)"
   echo -e "  └─────────────────────────────────────"
 }
@@ -132,7 +132,7 @@ progress_box() {
 case "$STATE" in
   wrong)
     echo ""
-    echo -e "  ${RED}✗ 修復碼不正確${RESET}"
+    echo -e "  ${RED}✗ flag 不正確${RESET}"
     echo -e "    確認你有沒有打錯字、漏掉大括號、或多了空格。"
     echo -e "    輸入 ${CYAN}mission${RESET} 查看目前任務提示。"
     echo ""
@@ -146,13 +146,13 @@ case "$STATE" in
     ;;
   ok)
     echo ""
-    echo -e "  ${GREEN}✓ 修復碼正確！$(node_name "$LEVEL") 已上線${RESET}"
+    echo -e "  ${GREEN}✓ flag 正確！$(node_name "$LEVEL") 完成${RESET}"
     echo ""
     progress_box "$SOLVED"
     echo ""
     if [ "$SOLVED" -eq 6 ]; then
       echo -e "  ${GREEN}██████████████████████████████████████████████${RESET}"
-      echo -e "  ${GREEN}  ALL NODES SECURED — SYSTEM ONLINE${RESET}"
+      echo -e "  ${GREEN}  SERVER RESTORED — 六個 flag 全部正確${RESET}"
       echo -e "  ${GREEN}██████████████████████████████████████████████${RESET}"
       echo ""
       echo -e "  打開瀏覽器：${CYAN}http://localhost:8080${RESET}"

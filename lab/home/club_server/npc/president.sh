@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 . ./say.sh
 
 blank
-sys "[DECRYPT] 偵測到一段加密語音備份：ex_president_final.wav"
+sys "找到一個未播放的錄音檔：ex_president_final.wav"
 sys "錄製時間：2024-06-14 04:07"
 sys "播放中 ..."
 blank
@@ -42,7 +42,7 @@ say "$C_PRES" "小拿斯" "所以我把東西打散了。六個 flag，六種你
 say "$C_PRES" "小拿斯" "cd、ls -a、nano、mkdir、mv、cp、apt install。"
 say "$C_PRES" "小拿斯" "都很基本，基本到沒有人願意花時間教。"
 blank
-say "$C_PRES" "小拿斯" "全部找齊之後，官網就會回來。"
+say "$C_PRES" "小拿斯" "全部找齊之後，填進 website/config.json，官網就會回來。"
 say "$C_PRES" "小拿斯" "那個官網是我大二寫的，很醜，但那是我第一個上線的東西。"
 blank
 say "$C_PRES" "小拿斯" "拜託你們幫我維持著，不然它就真的消失了。"
